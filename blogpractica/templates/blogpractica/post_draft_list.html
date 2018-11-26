@@ -1,0 +1,21 @@
+{% extends 'blogpractica/base.html' %}
+
+{% block content %}
+    {% for post in posts %}
+        <div class="post">
+            <div class="header">
+                <h2>
+                    <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a>
+                    <span class="author">{{ post.author.username }}</span>
+                </h2>
+                {% if user.is_authenticated %}
+                    <div class="icons">
+                      <a class="btn btn-info" href="{% url 'post_publish' pk=post.pk %}"><span class="glyphicon glyphicon-edit"></span></a>
+                      <a class="btn btn-warning" href="{% url 'post_remove' pk=post.pk %}"><span class="glyphicon glyphicon-trash"></span></a>
+                    </div>
+                {% endif %}
+            </div>
+            <p>{{ post.text|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}

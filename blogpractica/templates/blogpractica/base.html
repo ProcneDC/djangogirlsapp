@@ -11,6 +11,7 @@
         <div class="page-header">
           {% if user.is_authenticated %}
               <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+              <a href="{% url 'post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-list"></span></a>
           {% endif %}
             <h1><a href="/">Django Girls Blog</a></h1>
         </div>
@@ -22,5 +23,11 @@
                 </div>
             </div>
         </div>
+        <footer class="alert-warning">
+          <div class="text-center">
+            This site was created by <a href="https://github.com/ProcneDC/djangogirlsapp" target="_blank">ProcneDC</a> during the <a href="https://github.com/DjangoGirls/tutorial">DjangoGirls</a> workshop @ PyConAr 2018
+            <span class="glyphicon glyphicon-heart"></span>
+          </div>
+        </footer>
     </body>
 </html>
